@@ -1,0 +1,50 @@
+int RED=11;
+int GREEN=10;
+int BLUE=9;
+int POT=A0;
+int x;
+void setup() {
+  Serial.begin(9600);
+  pinMode(RED,OUTPUT);
+  pinMode(GREEN,OUTPUT);
+  pinMode(BLUE,OUTPUT);
+}
+void loop() {
+  x=analogRead(POT);
+  Serial.println(x);
+    if(x<147){
+  analogWrite(RED,225);
+  analogWrite(GREEN,0);
+  analogWrite(BLUE,0);
+} 
+    else if(x>146&&x<292){
+  analogWrite(RED,255);
+  analogWrite(GREEN,50);
+  analogWrite(BLUE,25);
+}
+    else if(x>291&&x<438){
+  analogWrite(RED,255);
+  analogWrite(GREEN,200);
+  analogWrite(BLUE,51);
+}
+    else if(x>437&&x<584){
+  analogWrite(RED,0);
+  analogWrite(GREEN,225);
+  analogWrite(BLUE,0);
+}
+    else if(x>583&&x<729){
+  analogWrite(RED,0);
+  analogWrite(GREEN,0);
+  analogWrite(BLUE,225);
+}
+    else if(x>728&&x<874){
+  analogWrite(RED,90);
+  analogWrite(GREEN,60);
+  analogWrite(BLUE,255);
+}
+    else{
+  analogWrite(RED,212);
+  analogWrite(GREEN,0);
+  analogWrite(BLUE,255);
+}
+}
